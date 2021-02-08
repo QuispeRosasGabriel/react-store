@@ -3,6 +3,7 @@ import { BrowserRouter,
          Switch,
          Router,
          Route } from "react-router-dom";
+import Layout from '../components/Layout';
 import { Home,
          Information,
          Checkout,
@@ -13,6 +14,7 @@ import { Home,
 const App = () => {
   return (
     <BrowserRouter>
+    <Layout>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/checkout" component={Checkout} />
@@ -21,6 +23,7 @@ const App = () => {
         <Route exact path="/checkout/success" component={Success} />
         <Route component={NotFound} />
       </Switch>
+    </Layout>
     </BrowserRouter>
   );
 }
