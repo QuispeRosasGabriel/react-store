@@ -12,7 +12,7 @@ const Checkout = () => {
                         <h4>Item name</h4>
                         <span>10$</span>
                     </div>
-                    <button type="button">Eliminar</button>
+                    <i className="fas fa-trash-alt" style={{color:"red"}}></i>
                 </div>
             </div>
             <div className="checkout-sidebar">
