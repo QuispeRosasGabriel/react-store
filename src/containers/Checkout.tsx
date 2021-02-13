@@ -9,7 +9,7 @@ const Checkout = () => {
     const { state, removeFromCart } = useContext(AppContext);
     const { cart }: any = state;
 
-    const handleRemove = (product: any) => removeFromCart(product);
+    const handleRemove = (product: any, idx: number) => removeFromCart(product, idx);
 
     const handleSumTotal = () => {
         const reducer = (accumulator: any, currentValue: any) => accumulator + currentValue.price;
@@ -27,7 +27,7 @@ const Checkout = () => {
                             <h4>{item?.title}</h4>
                             <span>{item?.price}</span>
                         </div>
-                        <button type="button" onClick={() => handleRemove(item)}>
+                        <button type="button" onClick={() => handleRemove(item, idx)}>
                             <i className="fas fa-trash-alt" style={{ color: "red" }}></i>
                         </button>
                     </div>
