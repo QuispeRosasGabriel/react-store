@@ -1,14 +1,21 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Product from './Product'
-import {IProduct} from '../global/intefaces/IProduct';
 import '../styles/components/Products.css';
+import AppContext from '../context/AppContext';
 
-const Products: React.FunctionComponent<{products: Array<IProduct>}>  = ({products}) => {
+const Products: React.FunctionComponent<{}>  = () => {
+    const {state, addToCart} = useContext(AppContext);
+    const {products}: any = state;
+
+    const handleAddToCart = (product: any) => addToCart(product);
+    
     return (
             <div className="products">
                 <div className="products-items">
-                    {products.map((product) => (
-                        <Product key={product.id} product={product} />
+                    {products.map((product: any) => (
+                        <Product key={product.id} 
+                        product={product}
+                        handleAddToCart={handleAddToCart} />
                     ))}
                 </div>
             </div>

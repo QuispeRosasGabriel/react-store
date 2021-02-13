@@ -1,8 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Link } from 'react-router-dom';
+import AppContext from '../context/AppContext';
 import '../styles/components/Header.css';
 
 const Header = () => {
+
+    const {state: {cart}}: any = useContext(AppContext);
+    
     return (
         <div className="header">
             <Link to="/">

@@ -1,7 +1,8 @@
 import React from 'react'
 import { IProduct } from '../global/intefaces/IProduct'
 
-const Product: React.FunctionComponent<{ product: IProduct }> = ({ product }) => {
+const Product: React.FunctionComponent<{ product: IProduct, handleAddToCart: any }> 
+= ({ product, handleAddToCart }: any) => {
     return (
         <div className="products-item">
             <img src={product.image} alt={product.title} />
@@ -11,7 +12,7 @@ const Product: React.FunctionComponent<{ product: IProduct }> = ({ product }) =>
                 </h2>
                 <p>{product.description}</p>
             </div>
-            <button type="button">Comprar</button>
+            <button type="button" onClick={handleAddToCart(product)}>Comprar</button>
         </div>
     )
 }
