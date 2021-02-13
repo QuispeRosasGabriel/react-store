@@ -13,7 +13,7 @@ const Products: React.FunctionComponent<{}>  = () => {
             <div className="products">
                 <div className="products-items">
                     {products.map((product: any) => (
-                        <Product key={product.id} 
+                        <Product key={product.id * Math.random() + Date.now().toString()} 
                         product={product}
                         handleAddToCart={handleAddToCart} />
                     ))}
