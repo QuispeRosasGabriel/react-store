@@ -18,13 +18,14 @@ import useInitialState from '../hooks/useInitialState';
 
 const App = () => {
 
-  const { addToCart, removeFromCart, state } = useInitialState();
+  const { addToCart, removeFromCart, state, addToBuyer } = useInitialState();
 
   return (
     <AppContext.Provider value={{
       addToCart,
       removeFromCart,
-      state
+      state,
+      addToBuyer
     }}>
       <BrowserRouter>
         <Layout>
