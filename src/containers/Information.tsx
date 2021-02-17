@@ -1,15 +1,15 @@
-import React, { useRef, useContext } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useRef, useContext, Props } from 'react'
+import { Link, useHistory } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 import { IProduct } from '../global/intefaces/IProduct';
 import '../styles/components/Information.css';
 
-const Information = () => {
+const Information: React.FunctionComponent<{}> = ({history}: any) => {
 
     const { state, addToBuyer } = useContext(AppContext);
-    const form = useRef<any>(null);
-
     const { cart }: any = state;
+    const form = useRef<any>(null);
+    //const history = useHistory();
 
     const handleSubmit = () => {
         const formData = new FormData(form.current);
@@ -26,6 +26,7 @@ const Information = () => {
         }
 
         addToBuyer(buyer);
+        history.push('/checkout/payment');
     }
 
     return (
